@@ -1,0 +1,39 @@
+
+  .banner{
+    background-image: url(../../img/img1.png);
+    height:200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .about{
+    width:100%;
+  }
+  .about__your{
+    display: flex;
+  }
+  .ava{
+    
+    margin: 20px;
+  }
+  .ava__img{
+    max-width: 100px;
+    border-radius: 42%;
+    -webkit-border-radius: 42%;
+    -moz-border-radius: 42%;
+    -ms-border-radius: 42%;
+    -o-border-radius: 42%;
+  }
+  .about__your__main{
+    margin: 20px;
+  }
+  .name{}
+  .dataBirth{}
+  .city{}
+  .edication{}
+  .site{}
+  .posts{}
+
+  .status{
+    border-bottom: 1px solid black;
+    
+  }

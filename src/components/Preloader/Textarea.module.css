@@ -1,0 +1,10 @@
+.error__textarea{
+    border: 2px solid red
+}
+.error__span{
+    color: red
+}
+.main__error{
+    border: 1px solid red;
+    color: red;
+}

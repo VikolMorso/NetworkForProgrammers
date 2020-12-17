@@ -1,0 +1,61 @@
+.preloader{
+    width:auto;
+    height: 70px;
+    display: block;
+    margin: 0 auto;
+}
+.ggg{
+    overflow: scroll;
+    max-width: 800px;
+}
+.btn_follow{
+    display: block;
+    color:black;
+    font-weight: 400;
+    background-color: #ce9e8494;
+    text-decoration: none;
+    padding: 10px 20px 10px 20px;
+    border-color: #ce9e84f5;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    margin-top: 20px;
+    
+}
+.btn_follow:focus{
+    outline: none;
+}
+.bold{
+    font-weight: 900;
+}
+.number__page{
+    margin: 10px 10px;
+}
+.block{
+    margin: 0 auto;
+    
+}
+.main{
+   display: grid;
+   grid-template-columns: 1fr 4fr 1fr;
+   align-items: center;
+   width: 100%;
+   margin: 20px 10px;
+   border: 1px solid #ce9e8475;
+
+}
+.AvatarkaAndBtn{
+    padding: 10px;
+}
+.ava{
+    display: block;
+    width:50px;
+}
+.info__users{
+    
+}
+.location{
+    text-align: end;
+}
