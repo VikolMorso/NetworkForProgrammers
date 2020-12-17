@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "562e1571a98bb25d3ba6e57472d1193d",
+    "revision": "8180ad1d2c4d50f6c90d8c6b8e6f819c",
     "url": "/NetworkForProgrammers/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/NetworkForProgrammers/static/css/3.2b283795.chunk.css"
   },
   {
-    "revision": "6949533822dd556ce8a5",
+    "revision": "417d6342c4baa9b90ac6",
     "url": "/NetworkForProgrammers/static/css/main.4e7a02be.chunk.css"
   },
   {
@@ -28,8 +28,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/NetworkForProgrammers/static/js/4.d0d42042.chunk.js"
   },
   {
-    "revision": "6949533822dd556ce8a5",
-    "url": "/NetworkForProgrammers/static/js/main.a70f84e2.chunk.js"
+    "revision": "417d6342c4baa9b90ac6",
+    "url": "/NetworkForProgrammers/static/js/main.bce5d969.chunk.js"
   },
   {
     "revision": "ee3faf87f63edd63a0a5",
