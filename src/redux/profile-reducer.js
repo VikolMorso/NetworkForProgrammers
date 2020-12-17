@@ -2,9 +2,9 @@ import { ProfileAPI, UsersApi } from "../Api/API";
 
 let initialState = {
     PostUser: [
-        { id: 1, post: 'Priv', likecount: 2 },
-        { id: 2, post: 'opyat дрочешь', likecount: 0 },
-        { id: 3, post: 'skolko mozhno, Max', likecount: 66 },
+        { id: 1, post: 'Привет', likecount: 2 },
+        { id: 2, post: 'тут ты можешь запосить свой коммент', likecount: 0 },
+        { id: 3, post: 'но пока, к сожалению, он будет виден только тебе и потеряется, если ты перезапустишь страницу', likecount: 66 },
     ],
     profile: null,
     status:''

@@ -2,7 +2,7 @@ import React from 'react';
 import Navigation from './components/Navigation/Navigation';
 import {Provider} from "react-redux"
 import Settings from './components/Settings/Settings';
-import { BrowserRouter, Route, withRouter } from 'react-router-dom';
+import { HashRouter, Route, withRouter } from 'react-router-dom';
 import './App.css';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from './components/Users/UsersContainer';
@@ -27,7 +27,7 @@ class App extends React.Component {
     render(){
         if (!this.props.inition){
              return <Preloader />}
-    return (<BrowserRouter >
+    return (<HashRouter >
 
         <div className="main" >
             <HeaderContainer/>
@@ -43,7 +43,7 @@ class App extends React.Component {
                 <Route path="/Users" render={()=> <UsersContainer store={this.props.store}/>} />
             </div>
         </div>
-    </BrowserRouter>
+    </HashRouter>
     );
 }
 }

@@ -16,7 +16,7 @@ function Header(props) {
         </div>
       ) : (
         <NavLink to="/login" className={s.auth}>
-          Login Helllooo
+          Login
         </NavLink>
       )}
     </header>
