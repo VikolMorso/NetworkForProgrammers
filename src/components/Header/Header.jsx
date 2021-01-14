@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import s from "./Header.module.css";
 function Header(props) {
   return (
@@ -11,12 +11,13 @@ function Header(props) {
             {props.login}
           </NavLink>
           <button onClick={props.logout} className={s.auth__btn}>
-            Loguot
+            Logout
           </button>
         </div>
       ) : (
         <NavLink to="/login" className={s.auth}>
           Login
+          <Redirect to="/login" />
         </NavLink>
       )}
     </header>

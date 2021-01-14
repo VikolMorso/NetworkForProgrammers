@@ -36,14 +36,24 @@ export const UsersApi = {
         return ProfileAPI.getProfileUser(userId)
         // instance.get(`profile/`+userId)
     },
-    login(email, password, rememberMe = false ){
-        debugger
-        return instance.post('auth/login', {email, password, rememberMe})
+    login(email, password, rememberMe = false, captcha ){
+        
+        return instance.post('auth/login', {email, password, rememberMe, captcha})
     },
     logout(){
-        debugger
+        
         return instance.delete('auth/login')
-    }
+    },
+    getCaptcha(){
+        
+        return instance.get('/security/get-captcha-url')
+    },
+    getFriends(currentPage = 1, page = 10){
+        return instance.get(`users?page=${currentPage}&count=${page}&friend=true `).then(response => response.data)
+    },
+    searchUser(user){
+        return instance.get(`users?term=${user}`).then(response => response.data)
+    },
 
 
 
@@ -65,5 +75,20 @@ export const ProfileAPI = {
             }
         }
         )
-    }
+    },
+    savePhoto(photo) {
+        var formData = new FormData();
+        formData.append("image", photo)
+        
+        return instance.post(`profile/photo/`, formData,{
+            headers:{
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+    },
+    saveProfile(data) {
+        
+        return instance.put(`profile/`, data)
+    },
+    
 }

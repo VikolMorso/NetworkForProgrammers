@@ -58,6 +58,10 @@ const usersReduce = (state = initialState, action) => {
             followInProgress: action.isFollow ? [...state.followInProgress, action.id] : state.followInProgress.filter(id => id !== action.id)
         }
 
+    } else if (action.type === 'SET_FRIENDS'){
+        return {
+            ...state, Users: action.friends
+        }
     }
     return state;
 }
@@ -70,6 +74,11 @@ const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS';
 const SET_USER_TOTAL_COUNT = 'SET_USER_TOTAL_COUNT'
 const FOLLOW_PROGRESS = 'FOLLOW_PROGRESS';
+const SET_FRIENDS = 'SET_FRIENDS';
+
+export const SetFriends = (friends)=>({
+    type: SET_FRIENDS, friends
+})
 export const isFetchingAC = (isFetching) => (
     {
 
@@ -114,11 +123,41 @@ export const GetUsersThunk = (currentPage, page) => {
         })
     }
 }
-export const onPageChanget = (p, currentPage, page) => {
+export const GetFriends = (currentPage, page) => {
+    return (dispatch) => {
+        dispatch(isFetchingAC(true));
+        UsersApi.getFriends(currentPage, page).then(data => {
+            debugger
+            dispatch(isFetchingAC(false));
+            dispatch(SetFriends(data.items))
+            dispatch(SetUsersTotalCountAC(data.totalCount))
+        })
+    }
+}
+export const SearchUser = (user) =>{
+    return (dispatch) => {
+        dispatch(isFetchingAC(true));
+        UsersApi.searchUser(user).then(data => {
+            dispatch(isFetchingAC(false));
+            dispatch(SetUsers(data.items))
+            dispatch(SetUsersTotalCountAC(data.totalCount))
+    })
+}
+}
+
+export const onPageChanget = (p, currentPage, page, path) => {
+    debugger
     return async (dispatch) => {
         dispatch(isFetchingAC(true));
         dispatch(SetCurrent(p))
-        let data = await UsersApi.getUsers(currentPage, page)
+        let data;
+        if (path === '/Users'){
+            data = await UsersApi.getUsers(currentPage, page)
+        } else{
+            data = await UsersApi.getFriends(currentPage, page)
+        }
+        
+        debugger
             dispatch(isFetchingAC(false));
             dispatch(SetUsers(data.items))
         

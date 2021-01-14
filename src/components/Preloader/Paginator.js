@@ -6,7 +6,7 @@ import React from "react";
 const { useState } = require("react");
 
 const Paginator = ({count, page, currentPage, onPageChanget, portSize = 10}) =>{
-
+    console.log(count, page, currentPage, onPageChanget, portSize = 10)
     let pagesCount = Math.ceil(count / page);
 
     let pages = [];
@@ -20,7 +20,7 @@ const Paginator = ({count, page, currentPage, onPageChanget, portSize = 10}) =>{
     let portionCount = Math.ceil(pagesCount / portSize);
     let leftNumber = (portionNumber-1)*portSize+1;
     let rigthNumber = leftNumber + portSize-1;
-debugger
+
 
     return  <div>
         {portionNumber > 1 && <button onClick={() => setPortionNumber(portionNumber-1)}>PREV</button>}

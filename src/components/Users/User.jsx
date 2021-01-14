@@ -3,7 +3,6 @@ import React from "react";
 import s from "./Users.module.css";
 
 function User({ u, followInProgress, Following, UnFollowing }) {
-  debugger;
   return (
     <div key={u.id} className={s.main}>
       <div className={s.AvatarkaAndBtn}>
@@ -12,7 +11,7 @@ function User({ u, followInProgress, Following, UnFollowing }) {
             src={
               u.photos.small != null
                 ? u.photos.small
-                : "https://i2.wp.com/info-4all.ru/images/1f71bd35f30694013d926809865f554d.jpg"
+                : "https://user-life.com/uploads/posts/2018-08/1535615328_kak-udalit-avatarku-postavit-foto-sdelat-zagruzit-dobavit-telegramm-skayp-vayber-vatsap-windows-10.gif"
             }
             alt=""
             className={s.ava}

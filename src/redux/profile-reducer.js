@@ -1,4 +1,6 @@
 import { ProfileAPI, UsersApi } from "../Api/API";
+import store from "./store-redux";
+
 
 let initialState = {
     PostUser: [
@@ -33,8 +35,11 @@ const profileReduce = (state = initialState, action) => {
     } else if (action.type === "SET_USERS_PROFILE"){
         return{ ...state, profile: action.profile}
     } else if (action.type === "SET_STATUS_USER"){
-        debugger
+        
         return {...state, status: action.status}
+    } else if (action.type === "SAVE_PHOTO_SUCCESS"){
+        debugger
+        return {...state, profile: {...state.profile, photos: {...state.profile.photos, large: action.photo}}}
     }
     return state;
 }
@@ -42,7 +47,7 @@ const profileReduce = (state = initialState, action) => {
 const AddPost = 'ADD-POST';                        // type отвечает за добавление поста 
 const SET_USERS_PROFILE = 'SET_USERS_PROFILE';
 const SET_STATUS_USER = 'SET_STATUS_USER'
-
+const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS'
 
 export const sendPostCreator = (textPost) => ({ type: AddPost, textPost }); //передаем диспатчу тип, который добавляет новый пост на страницу
 
@@ -50,10 +55,15 @@ export const SetUsersProfile=(profile)=>({ type: SET_USERS_PROFILE, profile})
 
 export const SetStatusUser=(status)=>({type: SET_STATUS_USER, status: status})
 
+export const savePhotoSuccess = (photo) => ({ type: SAVE_PHOTO_SUCCESS, photo})
+
 export const getProfileUser=(userId)=>{
     return async (dispatch)=>{
     let response = await UsersApi.getProfileUser(userId)
+    
             dispatch(SetUsersProfile(response.data))
+            dispatch(getStatus(response.data.userId))
+            
     }
 }
 export const getStatus=(userId)=>{
@@ -64,8 +74,28 @@ export const getStatus=(userId)=>{
 export const updateStatus=(status)=>{
     
     return async (dispatch)=>{
+        debugger
     let response = await ProfileAPI.updateStatus(status)
         dispatch(SetStatusUser(status))
+    }
+}
+export const savePhoto=(photo)=>{
+    return async (dispatch)=>{
+    let response = await ProfileAPI.savePhoto(photo)
+    
+        dispatch(savePhotoSuccess(response.data.data.photos.large))
+    }
+}
+
+
+export const saveProfile = (formData) =>{
+    const id = store.getState().Auth.id;
+    debugger
+    return async (dispatch) => {
+        debugger
+        let response = await ProfileAPI.saveProfile(formData)
+        debugger
+        dispatch(getProfileUser(id))
     }
 }
 export default profileReduce;

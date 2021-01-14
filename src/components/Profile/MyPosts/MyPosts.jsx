@@ -1,8 +1,4 @@
 import React from "react";
-import {
-  PostChangeCreator,
-  sendPostCreator,
-} from "../../../redux/profile-reducer";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 import { Field, reduxForm } from "redux-form";
@@ -12,11 +8,9 @@ import {
 } from "../../../validators/validator1";
 import { Textarea } from "../../Preloader/Textarea";
 
-let maxLength = MaxLengthCreator(15);
+let maxLength = MaxLengthCreator(20);
 
 function MyPosts(props) {
-  console.log("render my posts");
-
   let PostUserMas = props.PostUser.map((p) => (
     <Post post={p.post} key={p.id} likecount={p.likecount} />
   )); /* Мапим посты пользователей с кол-вом лайков*/

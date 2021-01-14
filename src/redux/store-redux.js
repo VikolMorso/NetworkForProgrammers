@@ -7,7 +7,6 @@ import usersReduce from './users-reducer';
 import thunkMiddleware from 'redux-thunk'
 import { reducer as formReducer } from 'redux-form'
 import AppReduce from './app-reducer';
-import CreditReduce from './news-reducer';
 
 
 let reducers = combineReducers({
@@ -18,7 +17,6 @@ let reducers = combineReducers({
     Auth: AuthReduce,
     form: formReducer,
     App: AppReduce,
-    News: CreditReduce
 
 });
 
@@ -30,6 +28,5 @@ const store = createStore(reducers, composeEnhancers(
 
 //let store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
-window.store = store
-
+window.__store__ = store
 export default store;

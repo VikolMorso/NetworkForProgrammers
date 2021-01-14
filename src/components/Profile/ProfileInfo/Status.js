@@ -44,7 +44,7 @@ class Status extends React.Component {
             {this.state.editMod ?
                 <div><textarea onBlur={this.switchStatusOff} autoFocus={true} onChange={this.onChangeStatus} value={this.state.localStatus}></textarea>
                     <button onClick={this.postStatus}>отправить</button></div> :
-                <div onClick={this.switchStatusOn} className={s.status}>{this.props.status || 'no status'}</div>
+                <div onClick={this.props.isOurProfile && this.switchStatusOn} className={s.status}>{this.props.status || 'no status'}</div>
 
             }
         </div>

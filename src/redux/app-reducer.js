@@ -8,7 +8,7 @@ const AppReduce = (state = initialState, action) => {
 
     switch (action.type) {
     case INITIALED: {
-        debugger
+        
         return {
             ...state,
             inition: true
@@ -26,7 +26,7 @@ export const Initialed = () => (
 })
 export const InitialApp=()=>(dispatch) => {
        let promise =  dispatch(getOurUser())
-       debugger
+       
        Promise.all([promise]).then(()=>
            dispatch(Initialed())
        )
